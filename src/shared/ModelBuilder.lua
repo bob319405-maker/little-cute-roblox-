@@ -74,22 +74,96 @@ end
 local BODY_SIZE = Vector3.new(3, 2.8, 2.8)
 local BODY_Y = 1.6 -- body bottom sits at y = 0.2, feet fill the gap
 
-local function addFace(model: Model, eyeY: number, eyeZ: number, eyeSpread: number, withMouth: boolean)
+local EVIL_EYE_RED = Color3.fromRGB(255, 40, 60)
+local EVIL_HORN = Color3.fromRGB(120, 15, 35)
+local EVIL_WING = Color3.fromRGB(55, 20, 70)
+local EVIL_AURA = Color3.fromRGB(150, 60, 220)
+
+local function addFace(model: Model, eyeY: number, eyeZ: number, eyeSpread: number, withMouth: boolean, evil: boolean)
 	for _, side in { -1, 1 } do
-		blob("Eye", Vector3.new(0.45, 0.6, 0.3), OUTLINE_BLACK, CFrame.new(side * eyeSpread, eyeY, eyeZ), model)
-		local shine = blob(
-			"EyeShine",
-			Vector3.new(0.18, 0.18, 0.1),
-			WHITE,
-			CFrame.new(side * eyeSpread - 0.08, eyeY + 0.13, eyeZ - 0.15),
-			model
-		)
-		shine.Material = Enum.Material.Neon
-		blob("Cheek", Vector3.new(0.55, 0.3, 0.25), CHEEK_PINK, CFrame.new(side * 0.95, 1.5, -1.05), model)
+		if evil then
+			-- glowing red eyes with a slit pupil + angry eyebrows
+			local eye = blob("Eye", Vector3.new(0.45, 0.5, 0.3), EVIL_EYE_RED, CFrame.new(side * eyeSpread, eyeY, eyeZ), model)
+			eye.Material = Enum.Material.Neon
+			blob("Pupil", Vector3.new(0.1, 0.38, 0.1), OUTLINE_BLACK, CFrame.new(side * eyeSpread, eyeY, eyeZ - 0.14), model)
+			block(
+				"Brow",
+				Vector3.new(0.6, 0.13, 0.13),
+				OUTLINE_BLACK,
+				CFrame.new(side * eyeSpread, eyeY + 0.4, eyeZ - 0.06) * CFrame.Angles(0, 0, side * math.rad(25)),
+				model
+			)
+		else
+			blob("Eye", Vector3.new(0.45, 0.6, 0.3), OUTLINE_BLACK, CFrame.new(side * eyeSpread, eyeY, eyeZ), model)
+			local shine = blob(
+				"EyeShine",
+				Vector3.new(0.18, 0.18, 0.1),
+				WHITE,
+				CFrame.new(side * eyeSpread - 0.08, eyeY + 0.13, eyeZ - 0.15),
+				model
+			)
+			shine.Material = Enum.Material.Neon
+			blob("Cheek", Vector3.new(0.55, 0.3, 0.25), CHEEK_PINK, CFrame.new(side * 0.95, 1.5, -1.05), model)
+		end
 	end
 	if withMouth then
-		blob("Mouth", Vector3.new(0.25, 0.12, 0.12), OUTLINE_BLACK, CFrame.new(0, 1.5, -1.36), model)
+		local mouthSize = if evil then Vector3.new(0.6, 0.1, 0.12) else Vector3.new(0.25, 0.12, 0.12)
+		blob("Mouth", mouthSize, OUTLINE_BLACK, CFrame.new(0, 1.5, -1.36), model)
 	end
+end
+
+-- Horns, fangs, bat wings and a devil tail for the Evil mutation.
+local function addEvilParts(model: Model, fangY: number)
+	for _, side in { -1, 1 } do
+		-- fangs
+		blob("Fang", Vector3.new(0.14, 0.24, 0.1), WHITE, CFrame.new(side * 0.17, fangY, -1.39), model)
+
+		-- horns: shrinking balls curving up and out
+		for i = 0, 5 do
+			local size = 0.48 - i * 0.075
+			blob(
+				"Horn",
+				Vector3.new(size, size, size),
+				EVIL_HORN,
+				CFrame.new(side * (0.42 + i * 0.05 + i * i * 0.012), 2.85 + i * 0.14, -0.5 + i * 0.03),
+				model
+			)
+		end
+
+		-- bat wing: a top bone plus scalloped membrane, behind the body
+		block(
+			"WingBone",
+			Vector3.new(1.7, 0.16, 0.16),
+			OUTLINE_BLACK,
+			CFrame.new(side * 2.0, 2.85, 1.0) * CFrame.Angles(0, 0, side * math.rad(18)),
+			model
+		)
+		for i = 0, 2 do
+			blob(
+				"WingSkin",
+				Vector3.new(0.75, 1.3 - i * 0.25, 0.1),
+				EVIL_WING,
+				CFrame.new(side * (1.45 + i * 0.5), 2.3 + i * 0.22, 1.0),
+				model
+			)
+		end
+	end
+
+	-- devil tail: little balls curving back and up, ending in a spade
+	for i = 1, 4 do
+		blob("DevilTail", Vector3.new(0.22, 0.22, 0.22), OUTLINE_BLACK, CFrame.new(0, 0.9 + i * 0.22, 1.55 + i * 0.22), model)
+	end
+	block(
+		"TailSpade",
+		Vector3.new(0.1, 0.45, 0.45),
+		EVIL_HORN,
+		CFrame.new(0, 2.0, 2.55) * CFrame.Angles(math.rad(45), 0, 0),
+		model
+	)
+end
+
+local function darken(color: Color3, toward: Color3, amount: number): Color3
+	return color:Lerp(toward, amount)
 end
 
 local function addEars(model: Model, style: string, earColor: Color3, innerColor: Color3)
@@ -264,6 +338,21 @@ local function applyMutation(model: Model, body: BasePart, mutationName: string?
 		model:SetAttribute("Rainbow", true)
 	end
 
+	if mutationName == "Evil" then
+		-- spooky purple aura drifting up around the pet
+		local aura = Instance.new("ParticleEmitter")
+		aura.Color = ColorSequence.new(EVIL_AURA, Color3.fromRGB(30, 0, 40))
+		aura.LightEmission = 0.6
+		aura.Rate = 10
+		aura.Lifetime = NumberRange.new(1.2, 2)
+		aura.Speed = NumberRange.new(0.8, 1.5)
+		aura.SpreadAngle = Vector2.new(180, 180)
+		aura.Acceleration = Vector3.new(0, 2, 0)
+		aura.Size = NumberSequence.new(0.5, 0)
+		aura.Transparency = NumberSequence.new(0.3, 1)
+		aura.Parent = body
+	end
+
 	if mutationName == "Shiny" or mutationName == "Golden" or mutationName == "Rainbow" then
 		local sparkles = Instance.new("Sparkles")
 		sparkles.SparkleColor = if mutationName == "Golden" then Color3.fromRGB(255, 220, 90) else WHITE
@@ -279,10 +368,19 @@ end
 -- Public API
 ----------------------------------------------------------------------
 
--- Build a pet. mutationName is optional ("Shiny", "Golden", "Rainbow", "Giant", "Tiny").
+-- Build a pet. mutationName is optional ("Shiny", "Golden", "Rainbow", "Evil", "Giant", "Tiny").
 function ModelBuilder.buildPet(petId: string, mutationName: string?): Model
-	local info = PetData.Pets[petId]
-	assert(info, "Unknown pet: " .. tostring(petId))
+	local baseInfo = PetData.Pets[petId]
+	assert(baseInfo, "Unknown pet: " .. tostring(petId))
+
+	-- Evil pets use a darker copy of the pet's colors.
+	local evil = mutationName == "Evil"
+	local info = baseInfo
+	if evil then
+		info = table.clone(baseInfo)
+		info.BodyColor = darken(baseInfo.BodyColor, Color3.fromRGB(40, 20, 55), 0.8)
+		info.AccentColor = darken(baseInfo.AccentColor, Color3.fromRGB(140, 20, 45), 0.6)
+	end
 
 	local model = Instance.new("Model")
 	model.Name = petId
@@ -300,25 +398,36 @@ function ModelBuilder.buildPet(petId: string, mutationName: string?): Model
 
 	-- face
 	if info.Extra == "TopEyes" then
-		addFace(model, 2.9, -0.88, 0.6, false)
+		addFace(model, 2.9, -0.88, 0.6, false, evil)
 	else
-		addFace(model, 1.85, -1.22, 0.55, info.Extra ~= "Beak")
+		addFace(model, 1.85, -1.22, 0.55, info.Extra ~= "Beak", evil)
 	end
 
-	-- ears (panda gets dark ears)
+	-- ears (panda gets dark ears, evil pets get red insides)
 	local earColor = if info.Extra == "PandaPatches" then info.AccentColor else info.BodyColor
-	local innerColor = if info.Extra == "PandaPatches" then info.AccentColor else CHEEK_PINK
+	local innerColor = if info.Extra == "PandaPatches" then info.AccentColor
+		elseif evil then EVIL_EYE_RED
+		else CHEEK_PINK
 	addEars(model, info.Ears, earColor, innerColor)
 
 	addExtra(model, info.Extra, info)
+
+	if evil then
+		local fangY = if info.Extra == "Beak" then 1.3 elseif info.Extra == "TopEyes" then 1.45 else 1.4
+		addEvilParts(model, fangY)
+	end
 
 	model.PrimaryPart = body
 	-- pivot on the ground under the pet so PivotTo / ScaleTo keep it standing
 	body.PivotOffset = CFrame.new(0, -BODY_Y, 0)
 
 	local rarity = PetData.Rarities[info.Rarity]
-	local title = if mutationName then mutationName .. " " .. info.DisplayName else info.DisplayName
-	addNameTag(model, body, title, info.Rarity, rarity.Color, 4.2)
+	local title = if evil and info.EvilName then info.EvilName
+		elseif mutationName then mutationName .. " " .. info.DisplayName
+		else info.DisplayName
+	local subtitle = if evil then "Evil " .. info.Rarity else info.Rarity
+	local subtitleColor = if evil then EVIL_EYE_RED else rarity.Color
+	addNameTag(model, body, title, subtitle, subtitleColor, 4.2)
 
 	applyMutation(model, body, mutationName)
 	return model

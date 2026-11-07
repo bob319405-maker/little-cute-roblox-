@@ -30,3 +30,4 @@ These are preview renders made from the same shapes and colors as `ModelBuilder.
 
 ![Pets](screenshots/pets.png)
 ![Mutations and eggs](screenshots/mutations-and-eggs.png)
+![Evil pets](screenshots/evil-pets.png)

@@ -49,8 +49,33 @@ Hatch adorable plushie pets from eggs, let them grow while you're away, and trad
 | Shiny | 1 in 20 | Sparkles, x2 coins |
 | Golden | 1 in 100 | Gold body, x5 coins |
 | Rainbow | 1 in 500 | Color-cycling body, x10 coins |
+| Evil | 1 in 200 | Dark colors, red glowing eyes, horns, bat wings, fangs, devil tail, purple aura, own evil name, x4 coins |
 | Giant | 1 in 50 | 2x size, x3 coins |
 | Tiny | 1 in 50 | Half size (just cute, collectors love it) |
+
+## Evil pets 😈
+Any pet can hatch **Evil** (1 in 200). It gets an evil look and its own name:
+
+| Pet | Evil name |
+|---|---|
+| Bun Bun | Doom Bun |
+| Mochi | Mochi Menace |
+| Puddle Pup | Shadow Pup |
+| Froggo | Grimfrog |
+| Honey Bear | Hex Bear |
+| Ducky | Duck of Darkness |
+| Strawbunny | Rotberry |
+| Cloud Lamb | Storm Lamb |
+| Boba Panda | Toxic Boba Panda |
+| Star Kitty | Black Hole Kitty |
+| Moon Bun | Blood Moon Bun |
+
+Evil ideas to build next:
+- **Blood Moon event** (random night, ~10 min): sky turns red, Evil chance x5, spooky music. Big "everyone log in now" moment.
+- **Cursed Egg**: only sold during Blood Moon, always hatches Evil.
+- **Cute vs Evil teams**: players pick a side each week, the side with more hatches wins a server-wide boost.
+- **Purify / Corrupt machine**: trade an Evil pet + coins to turn it back cute (or the reverse). Gives both versions value.
+- Evil pets leave little purple footprints when they follow you.
 
 ## Retention features
 - **Offline growth** — pets grow and earn while you're gone (capped at 8h)

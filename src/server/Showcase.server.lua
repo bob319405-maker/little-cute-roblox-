@@ -63,25 +63,35 @@ for _, petId in petIds do
 end
 placeRow(petModels, 0, Color3.fromRGB(255, 225, 235), "PetRow")
 
--- Row 2: every mutation on Bun Bun
+-- Row 2: evil version of every pet
+local evilModels = {}
+for _, petId in petIds do
+	table.insert(evilModels, ModelBuilder.buildPet(petId, "Evil"))
+end
+placeRow(evilModels, -12, Color3.fromRGB(70, 40, 80), "EvilRow")
+
+-- Row 3: every mutation on Bun Bun
 local mutationModels = {}
 for _, mutation in PetData.Mutations do
 	table.insert(mutationModels, ModelBuilder.buildPet("BunBun", mutation.Name))
 end
-placeRow(mutationModels, -12, Color3.fromRGB(220, 235, 255), "MutationRow")
+placeRow(mutationModels, -24, Color3.fromRGB(220, 235, 255), "MutationRow")
 
--- Row 3: eggs
+-- Row 4: eggs
 local eggIds = { "CozyEgg", "SweetEgg", "StarryEgg" }
 local eggModels = {}
 for _, eggId in eggIds do
 	table.insert(eggModels, ModelBuilder.buildEgg(eggId))
 end
-placeRow(eggModels, -24, Color3.fromRGB(230, 255, 225), "EggRow")
+placeRow(eggModels, -36, Color3.fromRGB(230, 255, 225), "EggRow")
 
 for _, model in petModels do
 	PetAnimator.add(model)
 end
 for _, model in mutationModels do
+	PetAnimator.add(model)
+end
+for _, model in evilModels do
 	PetAnimator.add(model)
 end
 

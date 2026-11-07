@@ -14,11 +14,13 @@ PetData.Rarities = {
 }
 
 -- Ears: "Round" | "Pointy" | "Long" | "None"
+-- EvilName: what the pet is called when it rolls the Evil mutation
 -- Extra: optional decoration built by ModelBuilder ("Beak", "TopEyes", "LeafHat",
 --        "Fluff", "PandaPatches", "Star", "Moon")
 PetData.Pets = {
 	BunBun = {
 		DisplayName = "Bun Bun",
+		EvilName = "Doom Bun",
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(255, 190, 210),
 		AccentColor = Color3.fromRGB(255, 240, 245),
@@ -27,6 +29,7 @@ PetData.Pets = {
 	},
 	Mochi = {
 		DisplayName = "Mochi",
+		EvilName = "Mochi Menace",
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(250, 248, 240),
 		AccentColor = Color3.fromRGB(255, 200, 210),
@@ -35,6 +38,7 @@ PetData.Pets = {
 	},
 	PuddlePup = {
 		DisplayName = "Puddle Pup",
+		EvilName = "Shadow Pup",
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(170, 215, 255),
 		AccentColor = Color3.fromRGB(235, 245, 255),
@@ -43,6 +47,7 @@ PetData.Pets = {
 	},
 	Froggo = {
 		DisplayName = "Froggo",
+		EvilName = "Grimfrog",
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(140, 220, 120),
 		AccentColor = Color3.fromRGB(230, 255, 200),
@@ -52,6 +57,7 @@ PetData.Pets = {
 	},
 	HoneyBear = {
 		DisplayName = "Honey Bear",
+		EvilName = "Hex Bear",
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(225, 170, 100),
 		AccentColor = Color3.fromRGB(255, 225, 170),
@@ -60,6 +66,7 @@ PetData.Pets = {
 	},
 	Ducky = {
 		DisplayName = "Ducky",
+		EvilName = "Duck of Darkness",
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(255, 230, 100),
 		AccentColor = Color3.fromRGB(255, 160, 60),
@@ -69,6 +76,7 @@ PetData.Pets = {
 	},
 	Strawbunny = {
 		DisplayName = "Strawbunny",
+		EvilName = "Rotberry",
 		Rarity = "Rare",
 		BodyColor = Color3.fromRGB(255, 95, 110),
 		AccentColor = Color3.fromRGB(255, 235, 150),
@@ -78,6 +86,7 @@ PetData.Pets = {
 	},
 	CloudLamb = {
 		DisplayName = "Cloud Lamb",
+		EvilName = "Storm Lamb",
 		Rarity = "Rare",
 		BodyColor = Color3.fromRGB(255, 255, 255),
 		AccentColor = Color3.fromRGB(230, 230, 240),
@@ -87,6 +96,7 @@ PetData.Pets = {
 	},
 	BobaPanda = {
 		DisplayName = "Boba Panda",
+		EvilName = "Toxic Boba Panda",
 		Rarity = "Epic",
 		BodyColor = Color3.fromRGB(255, 255, 255),
 		AccentColor = Color3.fromRGB(40, 40, 50),
@@ -96,6 +106,7 @@ PetData.Pets = {
 	},
 	StarKitty = {
 		DisplayName = "Star Kitty",
+		EvilName = "Black Hole Kitty",
 		Rarity = "Legendary",
 		BodyColor = Color3.fromRGB(190, 150, 255),
 		AccentColor = Color3.fromRGB(255, 230, 90),
@@ -105,6 +116,7 @@ PetData.Pets = {
 	},
 	MoonBun = {
 		DisplayName = "Moon Bun",
+		EvilName = "Blood Moon Bun",
 		Rarity = "Mythic",
 		BodyColor = Color3.fromRGB(60, 70, 150),
 		AccentColor = Color3.fromRGB(255, 245, 190),
@@ -142,6 +154,7 @@ PetData.Eggs = {
 -- Chance is "1 in N". Rolled in order; first hit wins.
 PetData.Mutations = {
 	{ Name = "Rainbow", OneIn = 500, CoinMultiplier = 10 },
+	{ Name = "Evil", OneIn = 200, CoinMultiplier = 4 },
 	{ Name = "Golden", OneIn = 100, CoinMultiplier = 5 },
 	{ Name = "Giant", OneIn = 50, CoinMultiplier = 3, Scale = 2 },
 	{ Name = "Tiny", OneIn = 50, CoinMultiplier = 1, Scale = 0.5 },
