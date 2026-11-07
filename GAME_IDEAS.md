@@ -5,6 +5,41 @@ Ideas for the actual game: the world, what you do every minute, and what keeps y
 
 ---
 
+## ⭐ 0. What makes Plushie Pals different: the Plush Mixer
+Every Roblox pet game has eggs and rarities. **In Plushie Pals you can create pets that have never existed before.**
+
+Put **two pets** into the Plush Mixer and get a **brand-new baby** that mixes them:
+- It takes the body shape from one parent, slightly squished or stretched.
+- Its colour is a blend of both parents.
+- Eyes, ears, tail and feet each come randomly from one parent or the other.
+- Special parts like snouts, honey pots or the moon get shuffled together, up to 3.
+- It gets a mashed-up name: Froggo + Bun Bun = **Frogbun**, Star Kitty + Boba Panda = **Starpanda**.
+- **Wild mixes** (1 in 25) also get a surprise part from *any* pet, plus random eyes, and earn 3× coins.
+
+With 11 pets that's **121 parent pairs**, and every baby is slightly different, so **no two players have the same pet**.
+
+### Mixer rules
+| Rule | Why |
+|---|---|
+| The Mixer is in your Cottage. It takes 3 minutes and costs coins | Gives coins a use and a reason to wait or come back |
+| The parents come back. Each pet can mix once a day | Players never lose their favourite pets, and they log in daily |
+| The baby gets the rarer parent's rarity and 1.5× their average coins | Mixing is always worth it |
+| Babies can still roll mutations (Shiny, Golden, Evil…) | A "Wild Rainbow Starpanda" becomes a legendary trade |
+| Mixed pets can be traded | Unique pets create a whole new trading market |
+
+### Why this could go viral
+- **"First Discovery":** the first player on the whole game to make a combo gets their name on the **Mix Book** forever ("Starpanda, first made by Ellie123"). Players will race to be first.
+- **Server shout-outs:** "🧪 Sam just made the FIRST EVER Wild Moonchi!"
+- **YouTube and TikTok videos write themselves:** "I mixed every pet in Plushie Pals", "Rarest mix ever??", "Mixing two Evil pets…".
+- Every mix is a surprise reveal, which is exactly the feeling that keeps people hatching eggs.
+
+### Coming next for the Mixer
+- **Generation 2:** mix two mixed pets together, for even weirder babies.
+- **Stitch Workshop:** design your own plushie by picking a body, eyes, ears, tail, colours and props. The best designs each week get added to a **Community Egg** that everyone can hatch, with the creator's name on it.
+- **Mixer upgrades:** faster mixing, a "lucky mix" with a higher Wild chance, and a choice of which parent's body to keep.
+
+---
+
 ## 1. The world map
 
 A small cozy island you can walk across in about 60 seconds. Each area unlocks with coins, so there's always a "next place" to save up for.
@@ -179,7 +214,7 @@ Kids love seeing their name on a board, and they record videos of it.
 
 ## 12. What to build first
 
-**Launch (MVP):** ⭐ Cozy Meadow, hatching with the reveal, pets following you, offline growth, the egg shop with restocks, Daily Gift, trading, server announcements.
+**Launch (MVP):** ⭐ Cozy Meadow, hatching with the reveal, pets following you, offline growth, the egg shop with restocks, **the Plush Mixer + Mix Book**, Daily Gift, trading, server announcements.
 
 **Update 1 (week 2):** Candy Hills, pet powers, Plush Rain, daily quests, codes.
 

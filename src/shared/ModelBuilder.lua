@@ -683,7 +683,15 @@ end
 function ModelBuilder.buildPet(petId: string, mutationName: string?): Model
 	local baseInfo = PetData.Pets[petId]
 	assert(baseInfo, "Unknown pet: " .. tostring(petId))
+	local model = ModelBuilder.buildPetFromInfo(baseInfo, mutationName)
+	model.Name = petId
+	model:SetAttribute("PetId", petId)
+	return model
+end
 
+-- Build a pet from any look table with the same fields as a PetData.Pets entry
+-- (used for one-of-a-kind pets from the Plush Mixer, see PetMixer.toInfo).
+function ModelBuilder.buildPetFromInfo(baseInfo, mutationName: string?): Model
 	-- Evil pets use a darker copy of the pet's colors.
 	local evil = mutationName == "Evil"
 	local info = baseInfo
@@ -701,8 +709,7 @@ function ModelBuilder.buildPet(petId: string, mutationName: string?): Model
 	end
 
 	local model = Instance.new("Model")
-	model.Name = petId
-	model:SetAttribute("PetId", petId)
+	model.Name = info.DisplayName
 
 	local float = info.Float or (if info.Feet == "None" then 0.6 else 0.2)
 	local b = makeBody(info.Body, float)

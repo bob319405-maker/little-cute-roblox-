@@ -7,6 +7,7 @@ A cute "hatch, grow and trade" Roblox game. Read [GAME_DESIGN.md](GAME_DESIGN.md
 |---|---|
 | `src/shared/PetData.lua` | All pets, eggs, rarities, mutations + hatch-roll functions |
 | `src/shared/ModelBuilder.lua` | Builds the cute pet & egg models out of Parts (no meshes needed) |
+| `src/shared/PetMixer.lua` | The Plush Mixer: mixes two pets into a one-of-a-kind baby (DataStore-ready "genes") |
 | `src/shared/PetAnimator.lua` | Bouncy/wiggle animation + Rainbow color cycling |
 | `src/server/Showcase.server.lua` | Spawns every pet, mutation and egg so you can look at them |
 
@@ -18,9 +19,9 @@ A cute "hatch, grow and trade" Roblox game. Read [GAME_DESIGN.md](GAME_DESIGN.md
 
 **Option B: copy & paste**
 1. In `ReplicatedStorage`, make a Folder named `Shared`.
-2. Inside it, add 3 **ModuleScripts** named `PetData`, `ModelBuilder`, `PetAnimator` and paste each file in.
+2. Inside it, add 4 **ModuleScripts** named `PetData`, `ModelBuilder`, `PetAnimator`, `PetMixer` and paste each file in.
 3. In `ServerScriptService`, add a **Script** and paste `Showcase.server.lua`.
-4. Press **Play** and walk forward: 3 rows (pets, mutations, eggs).
+4. Press **Play** and walk forward: 5 rows (pets, evil pets, mutations, Plush Mixer babies, eggs). The mixer babies are different every time you press Play.
 
 ## Adding a new pet
 Add an entry to `PetData.Pets` (colors, ears = `Round`/`Pointy`/`Long`/`None`, optional `Extra`), then add it to an egg's `Pets` table.
@@ -31,3 +32,4 @@ These are preview renders made from the same shapes and colors as `ModelBuilder.
 ![Pets](screenshots/pets.png)
 ![Mutations and eggs](screenshots/mutations-and-eggs.png)
 ![Evil pets](screenshots/evil-pets.png)
+![Plush Mixer babies](screenshots/mixer-babies.png)

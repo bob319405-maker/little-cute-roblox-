@@ -9,6 +9,7 @@ local Shared = ReplicatedStorage:WaitForChild("Shared")
 local PetData = require(Shared:WaitForChild("PetData"))
 local ModelBuilder = require(Shared:WaitForChild("ModelBuilder"))
 local PetAnimator = require(Shared:WaitForChild("PetAnimator"))
+local PetMixer = require(Shared:WaitForChild("PetMixer"))
 
 local SPACING = 7
 local ORIGIN = Vector3.new(0, 0, -30)
@@ -77,13 +78,31 @@ for _, mutation in PetData.Mutations do
 end
 placeRow(mutationModels, -24, Color3.fromRGB(220, 235, 255), "MutationRow")
 
--- Row 4: eggs
+-- Row 4: one-of-a-kind pets from the Plush Mixer (new every time you press Play)
+local mixPairs = {
+	{ "Froggo", "BunBun" },
+	{ "StarKitty", "BobaPanda" },
+	{ "Ducky", "CloudLamb" },
+	{ "MoonBun", "Mochi" },
+	{ "Strawbunny", "PuddlePup" },
+	{ "HoneyBear", "StarKitty" },
+	{ "CloudLamb", "Froggo" },
+	{ "BobaPanda", "Ducky" },
+}
+local mixModels = {}
+for _, pair in mixPairs do
+	local genes = PetMixer.mix(pair[1], pair[2])
+	table.insert(mixModels, ModelBuilder.buildPetFromInfo(PetMixer.toInfo(genes)))
+end
+placeRow(mixModels, -36, Color3.fromRGB(255, 245, 210), "MixRow")
+
+-- Row 5: eggs
 local eggIds = { "CozyEgg", "SweetEgg", "StarryEgg" }
 local eggModels = {}
 for _, eggId in eggIds do
 	table.insert(eggModels, ModelBuilder.buildEgg(eggId))
 end
-placeRow(eggModels, -36, Color3.fromRGB(230, 255, 225), "EggRow")
+placeRow(eggModels, -48, Color3.fromRGB(230, 255, 225), "EggRow")
 
 for _, model in petModels do
 	PetAnimator.add(model)
@@ -92,6 +111,9 @@ for _, model in mutationModels do
 	PetAnimator.add(model)
 end
 for _, model in evilModels do
+	PetAnimator.add(model)
+end
+for _, model in mixModels do
 	PetAnimator.add(model)
 end
 

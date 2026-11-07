@@ -25,6 +25,7 @@ PetData.Rarities = {
 PetData.Pets = {
 	BunBun = {
 		DisplayName = "Bun Bun",
+		NameParts = { "Bun", "bun" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Doom Bun",
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(255, 190, 210),
@@ -39,6 +40,7 @@ PetData.Pets = {
 	},
 	Mochi = {
 		DisplayName = "Mochi",
+		NameParts = { "Mo", "chi" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Mochi Menace",
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(250, 248, 240),
@@ -53,6 +55,7 @@ PetData.Pets = {
 	},
 	PuddlePup = {
 		DisplayName = "Puddle Pup",
+		NameParts = { "Pud", "pup" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Shadow Pup",
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(170, 215, 255),
@@ -68,6 +71,7 @@ PetData.Pets = {
 	},
 	Froggo = {
 		DisplayName = "Froggo",
+		NameParts = { "Frog", "oggo" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Grimfrog",
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(140, 220, 120),
@@ -82,6 +86,7 @@ PetData.Pets = {
 	},
 	HoneyBear = {
 		DisplayName = "Honey Bear",
+		NameParts = { "Honey", "bear" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Hex Bear",
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(215, 155, 90),
@@ -96,6 +101,7 @@ PetData.Pets = {
 	},
 	Ducky = {
 		DisplayName = "Ducky",
+		NameParts = { "Duck", "ucky" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Duck of Darkness",
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(255, 230, 100),
@@ -112,6 +118,7 @@ PetData.Pets = {
 	},
 	Strawbunny = {
 		DisplayName = "Strawbunny",
+		NameParts = { "Straw", "berry" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Rotberry",
 		Rarity = "Rare",
 		BodyColor = Color3.fromRGB(255, 95, 110),
@@ -129,6 +136,7 @@ PetData.Pets = {
 	},
 	CloudLamb = {
 		DisplayName = "Cloud Lamb",
+		NameParts = { "Cloud", "lamb" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Storm Lamb",
 		Rarity = "Rare",
 		BodyColor = Color3.fromRGB(255, 255, 255),
@@ -146,6 +154,7 @@ PetData.Pets = {
 	},
 	BobaPanda = {
 		DisplayName = "Boba Panda",
+		NameParts = { "Boba", "panda" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Toxic Boba Panda",
 		Rarity = "Epic",
 		BodyColor = Color3.fromRGB(255, 255, 255),
@@ -163,6 +172,7 @@ PetData.Pets = {
 	},
 	StarKitty = {
 		DisplayName = "Star Kitty",
+		NameParts = { "Star", "kitty" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Black Hole Kitty",
 		Rarity = "Legendary",
 		BodyColor = Color3.fromRGB(190, 150, 255),
@@ -178,6 +188,7 @@ PetData.Pets = {
 	},
 	MoonBun = {
 		DisplayName = "Moon Bun",
+		NameParts = { "Moon", "bun" }, -- Plush Mixer names: first part + other pet's second part
 		EvilName = "Blood Moon Bun",
 		Rarity = "Mythic",
 		BodyColor = Color3.fromRGB(60, 70, 150),
