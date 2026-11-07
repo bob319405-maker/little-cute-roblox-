@@ -1,6 +1,6 @@
 # Plushie Pals (working title)
 
-A cute "hatch, grow and trade" Roblox game. Read [GAME_DESIGN.md](GAME_DESIGN.md) for the full idea list.
+A cute "hatch, grow and trade" Roblox game. Read [GAME_DESIGN.md](GAME_DESIGN.md) for the pets and systems, and [GAME_IDEAS.md](GAME_IDEAS.md) for the world, gameplay, events and build order.
 
 ## What's here
 | File | What it does |
