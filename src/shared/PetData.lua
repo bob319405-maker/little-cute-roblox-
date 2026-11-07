@@ -13,10 +13,15 @@ PetData.Rarities = {
 	Mythic = { Order = 6, Color = Color3.fromRGB(255, 90, 160) },
 }
 
--- Ears: "Round" | "Pointy" | "Long" | "None"
--- EvilName: what the pet is called when it rolls the Evil mutation
--- Extra: optional decoration built by ModelBuilder ("Beak", "TopEyes", "LeafHat",
---        "Fluff", "PandaPatches", "Star", "Moon")
+-- How a pet looks (all read by ModelBuilder):
+--   Body      full size of the main body blob (X wide, Y tall, Z deep)
+--   Float     gap under the body; pets with Feet = "None" hover
+--   Eyes      "Big" | "Dot" | "Sparkle" | "Sleepy" | "Happy" | "Top" (frog eyes on bumps)
+--   Ears      "Long" | "Short" | "Pointy" | "Round" | "Floppy" | "Tiny" | "None"
+--   Tail      "Puff" | "Long" | "Star" | "Wag" | "Feather" | "None"
+--   Feet      "Paws" | "Webbed" | "None"
+--   Extras    list of add-ons, see ModelBuilder.addExtras
+--   EvilName  what the pet is called when it rolls the Evil mutation
 PetData.Pets = {
 	BunBun = {
 		DisplayName = "Bun Bun",
@@ -24,7 +29,12 @@ PetData.Pets = {
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(255, 190, 210),
 		AccentColor = Color3.fromRGB(255, 240, 245),
+		Body = Vector3.new(2.6, 3.0, 2.5), -- tall bean
+		Eyes = "Big",
 		Ears = "Long",
+		Tail = "Puff",
+		Feet = "Paws",
+		Extras = { "BuckTeeth" },
 		BaseCoins = 1,
 	},
 	Mochi = {
@@ -33,7 +43,12 @@ PetData.Pets = {
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(250, 248, 240),
 		AccentColor = Color3.fromRGB(255, 200, 210),
+		Body = Vector3.new(3.5, 2.3, 2.8), -- wide squishy loaf
+		Eyes = "Happy",
 		Ears = "Pointy",
+		Tail = "Long",
+		Feet = "Paws",
+		Extras = { "Whiskers", "CalicoSpots" },
 		BaseCoins = 1,
 	},
 	PuddlePup = {
@@ -42,7 +57,13 @@ PetData.Pets = {
 		Rarity = "Common",
 		BodyColor = Color3.fromRGB(170, 215, 255),
 		AccentColor = Color3.fromRGB(235, 245, 255),
-		Ears = "Round",
+		EarColor = Color3.fromRGB(105, 145, 215),
+		Body = Vector3.new(3.0, 2.7, 3.2),
+		Eyes = "Big",
+		Ears = "Floppy",
+		Tail = "Wag",
+		Feet = "Paws",
+		Extras = { "Snout", "Tongue", "EyePatch" },
 		BaseCoins = 1,
 	},
 	Froggo = {
@@ -51,17 +72,26 @@ PetData.Pets = {
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(140, 220, 120),
 		AccentColor = Color3.fromRGB(230, 255, 200),
+		Body = Vector3.new(3.7, 2.1, 3.0), -- wide and flat
+		Eyes = "Top",
 		Ears = "None",
-		Extra = "TopEyes",
+		Tail = "None",
+		Feet = "Webbed",
+		Extras = { "WideSmile", "FrogSpots" },
 		BaseCoins = 3,
 	},
 	HoneyBear = {
 		DisplayName = "Honey Bear",
 		EvilName = "Hex Bear",
 		Rarity = "Uncommon",
-		BodyColor = Color3.fromRGB(225, 170, 100),
+		BodyColor = Color3.fromRGB(215, 155, 90),
 		AccentColor = Color3.fromRGB(255, 225, 170),
+		Body = Vector3.new(3.4, 3.3, 3.0), -- big and round
+		Eyes = "Dot",
 		Ears = "Round",
+		Tail = "Puff",
+		Feet = "Paws",
+		Extras = { "Snout", "HoneyPot" },
 		BaseCoins = 3,
 	},
 	Ducky = {
@@ -70,8 +100,14 @@ PetData.Pets = {
 		Rarity = "Uncommon",
 		BodyColor = Color3.fromRGB(255, 230, 100),
 		AccentColor = Color3.fromRGB(255, 160, 60),
+		FeetColor = Color3.fromRGB(255, 150, 50),
+		NoBelly = true,
+		Body = Vector3.new(2.6, 2.7, 2.7),
+		Eyes = "Dot",
 		Ears = "None",
-		Extra = "Beak",
+		Tail = "Feather",
+		Feet = "Webbed",
+		Extras = { "Beak", "Wings", "Tuft" },
 		BaseCoins = 3,
 	},
 	Strawbunny = {
@@ -80,8 +116,15 @@ PetData.Pets = {
 		Rarity = "Rare",
 		BodyColor = Color3.fromRGB(255, 95, 110),
 		AccentColor = Color3.fromRGB(255, 235, 150),
-		Ears = "Long",
-		Extra = "LeafHat",
+		NoBelly = true,
+		Body = Vector3.new(3.0, 2.4, 2.8),
+		Float = 1.0, -- stands on its strawberry tip
+		Eyes = "Sparkle",
+		EyeColor = Color3.fromRGB(120, 200, 120),
+		Ears = "Short",
+		Tail = "None",
+		Feet = "None",
+		Extras = { "StrawberryTip", "LeafHat", "Seeds" },
 		BaseCoins = 8,
 	},
 	CloudLamb = {
@@ -89,9 +132,16 @@ PetData.Pets = {
 		EvilName = "Storm Lamb",
 		Rarity = "Rare",
 		BodyColor = Color3.fromRGB(255, 255, 255),
-		AccentColor = Color3.fromRGB(230, 230, 240),
-		Ears = "Round",
-		Extra = "Fluff",
+		AccentColor = Color3.fromRGB(255, 220, 205),
+		NoBelly = true,
+		FaceOut = 0.2,
+		Body = Vector3.new(2.8, 2.4, 2.6),
+		Float = 1.2, -- floats like a cloud
+		Eyes = "Sleepy",
+		Ears = "Tiny",
+		Tail = "None",
+		Feet = "None",
+		Extras = { "Fluff", "FaceMask", "CurlHorns" },
 		BaseCoins = 8,
 	},
 	BobaPanda = {
@@ -100,8 +150,15 @@ PetData.Pets = {
 		Rarity = "Epic",
 		BodyColor = Color3.fromRGB(255, 255, 255),
 		AccentColor = Color3.fromRGB(40, 40, 50),
+		EarColor = Color3.fromRGB(40, 40, 50),
+		FeetColor = Color3.fromRGB(40, 40, 50),
+		NoBelly = true,
+		Body = Vector3.new(3.7, 3.4, 3.3), -- extra chubby
+		Eyes = "Big",
 		Ears = "Round",
-		Extra = "PandaPatches",
+		Tail = "Puff",
+		Feet = "Paws",
+		Extras = { "PandaPatches", "Arms", "Boba" },
 		BaseCoins = 20,
 	},
 	StarKitty = {
@@ -110,8 +167,13 @@ PetData.Pets = {
 		Rarity = "Legendary",
 		BodyColor = Color3.fromRGB(190, 150, 255),
 		AccentColor = Color3.fromRGB(255, 230, 90),
+		EyeColor = Color3.fromRGB(110, 200, 255),
+		Body = Vector3.new(2.4, 3.2, 2.4), -- slim, sitting up tall
+		Eyes = "Sparkle",
 		Ears = "Pointy",
-		Extra = "Star",
+		Tail = "Star",
+		Feet = "Paws",
+		Extras = { "StarMark", "Collar", "Whiskers" },
 		BaseCoins = 60,
 	},
 	MoonBun = {
@@ -120,8 +182,13 @@ PetData.Pets = {
 		Rarity = "Mythic",
 		BodyColor = Color3.fromRGB(60, 70, 150),
 		AccentColor = Color3.fromRGB(255, 245, 190),
+		Body = Vector3.new(2.6, 2.6, 2.5),
+		Float = 1.0, -- sleeps while floating
+		Eyes = "Sleepy",
 		Ears = "Long",
-		Extra = "Moon",
+		Tail = "Puff",
+		Feet = "None",
+		Extras = { "Moon", "OrbitStars" },
 		BaseCoins = 200,
 	},
 }

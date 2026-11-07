@@ -26,17 +26,17 @@ Hatch adorable plushie pets from eggs, let them grow while you're away, and trad
 ## Pets (first batch — see `src/shared/PetData.lua`)
 | Pet | Look | Rarity |
 |---|---|---|
-| Bun Bun | Pink bunny, long ears | Common |
-| Mochi | White cat, pointy ears | Common |
-| Puddle Pup | Light blue puppy, round ears | Common |
-| Froggo | Green frog, big eyes on top | Uncommon |
-| Honey Bear | Honey bear, round ears | Uncommon |
-| Ducky | Yellow duck with a beak | Uncommon |
-| Strawbunny | Strawberry-red bunny with leaf hat | Rare |
-| Cloud Lamb | Fluffy white lamb | Rare |
-| Boba Panda | Panda holding a boba cup | Epic |
-| Star Kitty | Purple cat with a star | Legendary |
-| Moon Bun | Dark-blue bunny with crescent moon | Mythic |
+| Bun Bun | Tall pink bean bunny, long ears, buck teeth, puff tail | Common |
+| Mochi | Wide squishy white loaf cat, happy ^^ eyes, whiskers, calico spots, curly tail | Common |
+| Puddle Pup | Blue puppy, floppy ears, snout + tongue, eye patch, wagging tail | Common |
+| Froggo | Wide flat frog, eyes on top, big smile, spots, webbed feet | Uncommon |
+| Honey Bear | Big round bear, snout, honey pot + honey on its head | Uncommon |
+| Ducky | Yellow duck, beak, little wings, hair tuft, tail feather, orange feet | Uncommon |
+| Strawbunny | Strawberry-shaped bunny, seeds, leaf hat, sparkly green eyes | Rare |
+| Cloud Lamb | Floating fluffy cloud lamb, sleepy eyes, peach face, curly horns | Rare |
+| Boba Panda | Extra chubby panda hugging a boba tea | Epic |
+| Star Kitty | Slim cat sitting tall, sparkle eyes, star mark, bell collar, star-tipped tail | Legendary |
+| Moon Bun | Sleeping floating bunny with a giant crescent moon and orbiting stars | Mythic |
 
 ## Eggs
 - **Cozy Egg** (cheap, always in stock): Bun Bun, Mochi, Puddle Pup, Froggo
