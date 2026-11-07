@@ -24,3 +24,9 @@ A cute "hatch, grow and trade" Roblox game. Read [GAME_DESIGN.md](GAME_DESIGN.md
 
 ## Adding a new pet
 Add an entry to `PetData.Pets` (colors, ears = `Round`/`Pointy`/`Long`/`None`, optional `Extra`), then add it to an egg's `Pets` table.
+
+## Preview
+These are preview renders made from the same shapes and colors as `ModelBuilder.lua`, not Studio screenshots. Lighting and materials will look a little different in Roblox.
+
+![Pets](screenshots/pets.png)
+![Mutations and eggs](screenshots/mutations-and-eggs.png)

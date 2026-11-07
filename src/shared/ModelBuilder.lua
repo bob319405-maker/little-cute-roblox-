@@ -133,7 +133,7 @@ local function addMoon(model: Model, center: Vector3, color: Color3)
 		local t = i / (steps - 1) -- 0..1
 		local angle = math.rad(-130 + t * 260)
 		local size = 0.25 + 0.3 * math.sin(t * math.pi)
-		local offset = Vector3.new(math.sin(angle) * 0.55, math.cos(angle) * 0.55, 0)
+		local offset = Vector3.new(-math.cos(angle) * 0.55, math.sin(angle) * 0.55, 0) -- "C" shape, open to the right
 		local piece = blob("MoonPiece", Vector3.new(size, size, size), color, CFrame.new(center + offset), model)
 		piece.Material = Enum.Material.Neon
 	end
